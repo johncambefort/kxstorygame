@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./components/App.tsx";
 import { ChakraProvider } from "@chakra-ui/react";
 import en from "./i18n/en.json";
 import { IntlProvider } from "react-intl";

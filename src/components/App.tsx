@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { StoryWriter } from "./components/StoryWriter";
+import { StoryWriter } from "./StoryWriter";
 
 function App() {
   const router = createBrowserRouter([
