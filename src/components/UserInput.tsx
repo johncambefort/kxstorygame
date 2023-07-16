@@ -2,6 +2,8 @@ import { Input, Button, HStack } from "@chakra-ui/react";
 import { PropsWithChildren, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useIntl } from "react-intl";
+import { SENTENCE_MAX_CHARACTER_LENGTH } from "../config";
+import { useCustomToast } from "../utils/useCustomToasts";
 
 interface Props {
   setStory: (userInput: string) => void;
@@ -13,10 +15,16 @@ interface UserFormData {
 
 export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
   const intl = useIntl();
+  const { successToast } = useCustomToast();
   const { register, handleSubmit, watch } = useForm<UserFormData>();
   const formValue = watch().userInput ?? "";
+
   const onSubmit = (data: UserFormData) => {
-    setStory(data.userInput);
+    setStory(data.userInput); // TODO update story in context, don't use setter via prop
+    successToast(
+      "Your line was added to the story!",
+      "STORYWRITER.ADD_LINE_SUCCESS"
+    );
   };
 
   const userInputPlaceholder = useMemo(() => {
@@ -35,8 +43,11 @@ export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <HStack>
         <Input
+          type="text"
+          size="sm"
           aria-label="Add a line to the story!"
           placeholder={userInputPlaceholder}
+          maxLength={SENTENCE_MAX_CHARACTER_LENGTH}
           {...register("userInput")}
         />
         <Button type="submit" isDisabled={formValue.length === 0}>

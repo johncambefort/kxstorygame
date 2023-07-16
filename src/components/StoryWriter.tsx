@@ -4,7 +4,7 @@ import { UserInput } from "./UserInput";
 import { Navbar } from "./Navbar";
 
 export const StoryWriter: React.FC = () => {
-  const [story, setStory] = useState(""); // TODO use reactquery here
+  const [story, setStory] = useState(""); // TODO fetch story from context, don't expose setter
 
   return (
     <>

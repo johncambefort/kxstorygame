@@ -2,5 +2,7 @@
   "HOME.PLAY": "Play the game!",
   "MAIN.APP_TITLE": "KX Story Game",
   "STORYWRITER.USERINPUT.CHARS_LIMIT": "(160 chars max)",
-  "STORYWRITER.USERINPUT.PLACEHOLDER": "Add a line to the story!"
+  "STORYWRITER.USERINPUT.PLACEHOLDER": "Add a line to the story!",
+  "STORYWRITER.ADD_LINE_SUCCESS": "Your line was added to the story!",
+  "STORYWRITER.ADD_LINE_FAIL": "Error: failed to add your line to the story"
 }

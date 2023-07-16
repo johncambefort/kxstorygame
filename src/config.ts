@@ -1,0 +1,1 @@
+export const SENTENCE_MAX_CHARACTER_LENGTH = 159;
