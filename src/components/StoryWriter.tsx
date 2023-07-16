@@ -1,10 +1,11 @@
 import { Box, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Navbar } from "./Navbar";
 import { UserInput } from "./UserInput";
+import { Navbar } from "./Navbar";
 
 export const StoryWriter: React.FC = () => {
-  const [story, setStory] = useState("");
+  const [story, setStory] = useState(""); // TODO use reactquery here
+
   return (
     <>
       <Navbar />

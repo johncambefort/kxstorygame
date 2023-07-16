@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { StoryWriter } from "./StoryWriter";
+import { Home } from "./Home";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <StoryWriter />,
+      element: <Home />,
     },
+    { path: "/story", element: <StoryWriter /> },
   ]);
 
   return (

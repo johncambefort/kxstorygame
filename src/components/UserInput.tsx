@@ -13,7 +13,8 @@ interface UserFormData {
 
 export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
   const intl = useIntl();
-  const { register, handleSubmit } = useForm<UserFormData>();
+  const { register, handleSubmit, watch } = useForm<UserFormData>();
+  const formValue = watch().userInput ?? "";
   const onSubmit = (data: UserFormData) => {
     setStory(data.userInput);
   };
@@ -38,7 +39,9 @@ export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
           placeholder={userInputPlaceholder}
           {...register("userInput")}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" isDisabled={formValue.length === 0}>
+          Submit
+        </Button>
       </HStack>
     </form>
   );
