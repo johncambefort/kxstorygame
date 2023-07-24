@@ -27,17 +27,14 @@ export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
     );
   };
 
-  const userInputPlaceholder = useMemo(() => {
-    const userInputText = intl.formatMessage({
-      id: "STORYWRITER.USERINPUT.PLACEHOLDER",
-      defaultMessage: "Add a line to the story!",
-    });
-    const charsLimitText = intl.formatMessage({
-      id: "STORYWRITER.USERINPUT.CHARS_LIMIT",
-      defaultMessage: "(160 chars max)",
-    });
-    return `${userInputText} ${charsLimitText}`;
-  }, [intl]);
+  const userInputText = intl.formatMessage({
+    id: "STORYWRITER.USERINPUT.PLACEHOLDER",
+    defaultMessage: "Add a line to the story!",
+  });
+  const charsLimitText = intl.formatMessage({
+    id: "STORYWRITER.USERINPUT.CHARS_LIMIT",
+    defaultMessage: "(160 chars max)",
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,8 +42,8 @@ export const UserInput: React.FC<PropsWithChildren<Props>> = ({ setStory }) => {
         <Input
           type="text"
           size="sm"
-          aria-label="Add a line to the story!"
-          placeholder={userInputPlaceholder}
+          aria-label={userInputText}
+          placeholder={`${userInputText} ${charsLimitText}`}
           maxLength={SENTENCE_MAX_CHARACTER_LENGTH}
           {...register("userInput")}
         />
