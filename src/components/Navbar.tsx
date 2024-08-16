@@ -4,13 +4,18 @@ import { Link } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
   return (
-    <Flex>
+    <Flex gap="1rem" alignItems="baseline">
       <Box height="4rem">
         <Heading as={Link} to={"/"}>
           <FormattedMessage
             id="MAIN.APP_TITLE"
             defaultMessage="KX Story Game"
           />
+        </Heading>
+      </Box>
+      <Box>
+        <Heading size="sm" as={Link} to={"/poems"}>
+          <FormattedMessage id="HOME.POEMS_LIST" defaultMessage="View Poems" />
         </Heading>
       </Box>
     </Flex>
